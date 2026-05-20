@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Limburg Open titel</title>
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- iOS app settings -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Limburg Open" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+
+    <!-- Favicon for browser tabs -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="images/favicon-32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="images/favicon-64.png"
+      sizes="64x64"
+    />
+
+    <!-- Apple Touch Icon for iOS home screen -->
+    <link rel="apple-touch-icon" href="images/apple-touch-icon-180.png" />
+
+    <!-- Web App Manifest for PWA support -->
+    <link rel="manifest" href="manifest.json" />
+
+    <!-- Theme color for mobile browsers -->
+    <meta name="theme-color" content="#1a472a" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>⛳ Limburg Open</h1>
+        <p>Evenement Archief & Geschiedenis 2014-2025</p>
+      </header>
+
+      <div class="dashboard">
+        <!-- 2026 Tile -->
+        <a
+          href="https://new.express.adobe.com/webpage/VO9ctIz28NRxr"
+          target="_blank"
+          class="tile tile-2025"
+        >
+          <div class="tile-content">
+            <h2>Zenderen (2)</h2>
+            <p class="year">2026</p>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+
+        <!-- History Tile -->
+        <a href="#" onclick="toggleHistory(event)" class="tile tile-history">
+          <div class="tile-content">
+            <h2>📜 Geschiedenis</h2>
+            <p class="year">2014-2025</p>
+            <span class="arrow">↓</span>
+          </div>
+        </a>
+
+        <!-- 2025 Tile -->
+        <a
+          href="https://new.express.adobe.com/webpage/IkKs428vXpGyg"
+          target="_blank"
+          class="tile tile-2025"
+        >
+          <div class="tile-content">
+            <h2>Zenderen (1)</h2>
+            <p class="year">2025</p>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+
+        <!-- 2024 Tile -->
+        <a
+          href="https://new.express.adobe.com/webpage/sB3Yw2EJ16Gjt"
+          target="_blank"
+          class="tile tile-2024"
+        >
+          <div class="tile-content">
+            <h2>Spa</h2>
+            <p class="year">2024</p>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+
+        <!-- 2023 Tile -->
+        <a
+          href="https://express.adobe.com/page/isA6t48fHa8Rb"
+          target="_blank"
+          class="tile tile-2023"
+        >
+          <div class="tile-content">
+            <h2>Diever</h2>
+            <p class="year">2023</p>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+
+        <!-- 2022 Tile -->
+        <a
+          href="https://express.adobe.com/page/fVj64fdICAGQJ"
+          target="_blank"
+          class="tile tile-2022"
+        >
+          <div class="tile-content">
+            <h2>Neer</h2>
+            <p class="year">2022</p>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+
+        <!-- 2021 Tile -->
+        <a
+          href="https://express.adobe.com/page/9xGokV2RoA5kh/"
+          target="_blank"
+          class="tile tile-2021"
+        >
+          <div class="tile-content">
+            <h2>Nijmegen</h2>
+            <p class="year">2021</p>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+
+        <!-- 2020 Tile -->
+        <a
+          href="https://express.adobe.com/page/JNLPH9J219UlC/"
+          target="_blank"
+          class="tile tile-2020"
+        >
+          <div class="tile-content">
+            <h2>Bergvliet</h2>
+            <p class="year">2020</p>
+            <span class="arrow">→</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- History Panel -->
+      <div id="historyPanel" class="history-panel hidden">
+        <div class="history-content">
+          <button class="close-btn" onclick="toggleHistory()">✕</button>
+          <h2>⛳ Limburg Open geschiedenis</h2>
+
+          <div class="history-grid">
+            <!-- 2025 -->
+            <div class="history-year">
+              <div class="year-header">2025 🏌️ Twente</div>
+              <div class="participants">
+                <strong>Deelnemers:</strong><br />
+                Chris, Hans, Petro, Peter, Petra, Ewa, Marjolein en Jacobien.
+                Mariette kwam 2 dagen als gast.
+              </div>
+              <div class="courses">
+                <strong>Banen:</strong>
+                Twente • De Twentsche • De Koepel • Lochem • Sybrook • Driense
+              </div>
+            </div>
+
+            <!-- 2024 -->
+            <div class="history-year">
+              <div class="year-header">2024 🏌️ Spa</div>
+              <div class="participants">
+                <strong>Deelnemers:</strong><br />
+                Hans, Petra, Ewa, Petro, Chris, Peter, Jacobien, Marjolein,
+                Mariette
+              </div>
+              <div class="courses">
+                <strong>Banen:</strong>
+                Houthalen • Spa - Royal Golf Club des Fagnes • Sart Tillman •
+                Spa - Royal Golf Club des Fagnes • Kempense
+              </div>
+            </div>
+
+            <!-- 2023 -->
+            <div class="history-year">
+              <div class="year-header">2023 🏌️ Drenthe</div>
+              <div class="participants">
+                <strong>Deelnemers:</strong><br />
+                Chris, Mariette, Hans, Marjolein, Peter, Marjolein, Ewa, Petro,
+                Jacobien
+              </div>
+              <div class="courses">
+                <strong>Banen:</strong>
+                Lauswolt • Gelpenberg • De Compagnie • Noord Nederlandse •
+                Nunspeet
+              </div>
+            </div>
+
+            <!-- 2022 -->
+            <div class="history-year">
+              <div class="year-header">2022 🏌️ Neer in Limburg</div>
+              <div class="participants">
+                <strong>Deelnemers:</strong><br />
+                Chris, Petro, Ewa, Petra, Mariette, Jacobien, Peter, Hans,
+                Marjolein
+              </div>
+              <div class="courses">
+                <strong>Banen:</strong>
+                De Peelse Golf • Crossmotor • Stippelberg • Haviksoord •
+                Eindhovensche
+              </div>
+            </div>
+
+            <!-- 2021 -->
+            <div class="history-year">
+              <div class="year-header">2021 🏌️ Nijmegen</div>
+              <div class="participants">
+                <strong>Deelnemers:</strong><br />
+                Hans, Chris, Petro, Petra, Marjolein, Peter, Ewa, Mariette,
+                Jacobien
+              </div>
+              <div class="courses">
+                <strong>Banen:</strong>
+                Rosendaelsche • Rijk van Nijmegen - Nijmeegse baan • Golf
+                International Moyland • Rijk van Nijmegen - Groesbeekse baan •
+                De Batouwe
+              </div>
+            </div>
+
+            <!-- 2020 -->
+            <div class="history-year">
+              <div class="year-header">2020 🏌️ Bergvliet</div>
+              <div class="participants">
+                <strong>Deelnemers:</strong><br />
+                Chris, Jacobien, Hans, Ewa, Marjolein, Peter, Petro, Mariette,
+                Petra
+              </div>
+              <div class="courses">
+                <strong>Banen:</strong>
+                Bergvliet • Toxandria • De Haenen • De Dommel • Wouwse Plantage
+              </div>
+            </div>
+
+            <!-- 2019 -->
+            <div class="history-year">
+              <div class="year-header">2019 🏌️ Weert</div>
+              <div class="participants">
+                <strong>Deelnemers:</strong><br />
+                Peter, Petra, Caroline, Marjolein, Mariette, Ewa, Chris,
+                Caroline, Hans en Petro
+              </div>
+              <div class="courses">
+                <strong>Banen:</strong>
+                Schwinkelse • Steenhoven • t'Woold • Herkenbosch • Eindhovensche
+              </div>
+            </div>
+
+            <!-- 2018 -->
+            <div class="history-year">
+              <div class="year-header">2018 🏌️ Twente</div>
+              <div class="participants">
+                <strong>Deelnemers:</strong><br />
+                Hans, Petra, Caroline, Ewa, Mariette, Marjolein, Chris, Marcel,
+                Peter en Petro
+              </div>
+              <div class="courses">
+                <strong>Banen:</strong>
+                Sallandse • Hooge Grave • Lochem • Twentse • Hilversum
+              </div>
+            </div>
+
+            <!-- 2017 -->
+            <div class="history-year">
+              <div class="year-header">2017 🏌️ Brugge</div>
+              <div class="participants">
+                <strong>Deelnemers:</strong><br />
+                Mariette, Petra, Marjolein, Caroline, Peter, Chris, Ewa, Petro,
+                Hans, Jacobien
+              </div>
+              <div class="courses">
+                <strong>Banen:</strong>
+                Damme • Royal Lathem • Knokke • Oostende • Royal Antwerpen
+              </div>
+            </div>
+
+            <!-- 2016 -->
+            <div class="history-year">
+              <div class="year-header">2016 🏌️ België</div>
+              <div class="participants">
+                <strong>Deelnemers:</strong><br />
+                Marcel, Peter, Hans, Chris, Marjolein, Petra, Ewa en Mariette
+              </div>
+              <div class="courses">
+                <strong>Banen:</strong>
+                Eindhovense • Limburgse Golf en Country Club Houthalen •
+                Spiegelven (9 holes) • Royal Sart Tillman • Limburgse Golf en
+                Country Club Houthalen
+              </div>
+            </div>
+
+            <!-- 2015 -->
+            <div class="history-year">
+              <div class="year-header">2015 🏌️ Houthalen</div>
+              <div class="participants">
+                <strong>Deelnemers:</strong><br />
+                Petro, Maurice, Hans, Peter, Marjolein, Petra, Ewa, Caroline,
+                Jacobien (formeel toernooi)
+              </div>
+              <div class="courses">
+                <strong>Banen:</strong>
+                Millennium Golf • Limburg Golf en Country Club Houthalen •
+                Brunssummerheide
+              </div>
+            </div>
+
+            <!-- 2014 -->
+            <div class="history-year">
+              <div class="year-header">2014 🏌️ Margraten</div>
+              <div class="participants">
+                <strong>Deelnemers:</strong><br />
+                Marjolein, Mariette, Ewa en Petra (formeel toernooi)
+              </div>
+              <div class="courses">
+                <strong>Banen:</strong>
+                Margraten Hole 8 • Hoenshuis • Limburg Golf en Country Club
+                Houthalen • Brunssummerheide
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function toggleHistory(event) {
+        if (event) {
+          event.preventDefault();
+        }
+        const panel = document.getElementById("historyPanel");
+        panel.classList.toggle("hidden");
+      }
+    </script>
+  </body>
+</html>
