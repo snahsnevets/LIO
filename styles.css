@@ -316,6 +316,16 @@ header p {
   border-left: 4px solid #764ba2;
 }
 
+.winnaars {
+  font-size: 0.85rem;
+  color: #333;
+  line-height: 1.5;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 8px;
+  border-left: 4px solid #f4223b;
+}
+
 .courses strong {
   color: #333;
   display: block;
