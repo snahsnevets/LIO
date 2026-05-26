@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <title>Limburg Open - Kaart</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Leaflet CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      h1 {
+        text-align: center;
+        margin: 10px;
+        color: #1a472a;
+      }
+
+      #map {
+        height: 90vh;
+        width: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>⛳ Limburg Open - Golfbanen kaart</h1>
+    <div id="map"></div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <script>
+      // Kaart starten (midden NL/BE)
+      var map = L.map("map").setView([51.5, 5.5], 6);
+
+      // OpenStreetMap laag
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: "&copy; OpenStreetMap",
+      }).addTo(map);
+
+      // Banen (naam, lat, lng, info)
+      const banen = [
+        ["Bergvliet (2020)", 51.565, 4.675],
+        ["Brunssummerheide (2014, 2015)", 50.946, 5.978],
+        ["Crossmoor (2022)", 51.261, 5.804],
+        ["Damme GCC (2017)", 51.251, 3.281],
+        ["De Batouwe (2021)", 51.889, 5.371],
+        ["De Compagnie (2023)", 53.084, 6.733],
+        ["De Dommel (2020)", 51.445, 5.464],
+        ["De Haenen (2020)", 51.508, 4.679],
+        ["De Koepel (2025)", 52.22, 6.895],
+        ["De Peelse Golf (2022)", 51.488, 5.839],
+        ["De Twentsche (2025)", 52.258, 6.842],
+        ["Drienerlo (2025)", 52.239, 6.856],
+        ["Eindhovensche (2019, 2022)", 51.441, 5.5],
+        ["Gelpenberg (2023)", 52.742, 6.846],
+        ["Moyland (2021)", 51.78, 6.227],
+        ["'t Woold (2019)", 52.02, 6.571],
+        ["Haviksoord (2022)", 51.61, 5.091],
+        ["Herkenbosch (2019)", 51.154, 6.063],
+        ["Hilversum (2018)", 52.243, 5.181],
+        ["Hoenshuis (2014)", 50.911, 5.948],
+        ["Hooge Graven (2018)", 52.5, 6.32],
+        ["Kempense (2024)", 51.263, 5.085],
+        ["Knokke (2017)", 51.352, 3.347],
+        ["Lauswolt (2023)", 53.097, 6.126],
+        ["Houthalen (2014-2016, 2024)", 51.046, 5.373],
+        ["Lochem (2018, 2025)", 52.159, 6.414],
+        ["Margraten (2014)", 50.821, 5.816],
+        ["Millennium (2015)", 51.095, 5.372],
+        ["Noord Nederlandse (2023)", 53.221, 6.561],
+        ["Nunspeet (2023)", 52.38, 5.781],
+        ["Oostende (2017)", 51.236, 2.967],
+        ["Rosendael (2021)", 52.03, 5.957],
+        ["Royal Antwerp (2017)", 51.279, 4.41],
+        ["Royal Latem (2017)", 50.999, 3.618],
+        ["Sart-Tilman (2016, 2024)", 50.582, 5.566],
+        ["Sallandsche (2018)", 52.428, 6.317],
+        ["Schwinkelse (2019)", 51.312, 5.624],
+        ["Spa Fagnes (2024)", 50.485, 5.864],
+        ["Spiegelven (2016)", 50.98, 5.513],
+        ["Steenhoven (2019)", 51.4, 5.33],
+        ["Stippelberg (2022)", 51.514, 5.922],
+        ["Sybrook (2025)", 52.33, 6.845],
+        ["Toxandria (2020)", 51.505, 4.878],
+        ["Twente (2025)", 52.2, 6.85],
+        ["Wouwse Plantage (2020)", 51.533, 4.39],
+      ];
+
+      // Markers plaatsen
+      banen.forEach(function (baan) {
+        L.marker([baan[1], baan[2]]).addTo(map).bindPopup(baan[0]);
+      });
+    </script>
+  </body>
+</html>
