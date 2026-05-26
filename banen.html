@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <title>Limburg Open PRO Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Leaflet -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- Marker cluster -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css"
+    />
+    <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+
+    <style>
+      body {
+        font-family: Arial;
+        margin: 0;
+        background: #f4f6f5;
+      }
+      h1 {
+        text-align: center;
+        color: #1a472a;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 10px;
+      }
+
+      .stats {
+        display: flex;
+        gap: 10px;
+        margin: 10px 0;
+      }
+      .card {
+        flex: 1;
+        background: white;
+        padding: 15px;
+        border-radius: 10px;
+        text-align: center;
+      }
+
+      .controls {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+
+      input,
+      select {
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+      }
+
+      table {
+        width: 100%;
+        background: white;
+        border-collapse: collapse;
+        margin-bottom: 10px;
+      }
+      th,
+      td {
+        padding: 8px;
+        border-bottom: 1px solid #ddd;
+      }
+      th {
+        background: #1a472a;
+        color: white;
+      }
+
+      #map {
+        height: 500px;
+        border-radius: 10px;
+      }
+
+      .highlight {
+        background: #dff0d8 !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>⛳ Limburg Open PRO Dashboard</h1>
+
+    <div class="container">
+      <div class="stats">
+        <div class="card">Banen<br /><b id="banenCount"></b></div>
+        <div class="card">Jaren<br /><b id="jaarCount"></b></div>
+        <div class="card">Landen<br /><b id="landen"></b></div>
+      </div>
+
+      <div class="controls">
+        <input id="zoek" placeholder="Zoek baan..." oninput="update()" />
+        <select id="jaarFilter" onchange="update()">
+          <option value="">Alle jaren</option>
+          <option>2025</option>
+          <option>2024</option>
+          <option>2023</option>
+          <option>2022</option>
+          <option>2021</option>
+          <option>2020</option>
+          <option>2019</option>
+          <option>2018</option>
+          <option>2017</option>
+          <option>2016</option>
+          <option>2015</option>
+          <option>2014</option>
+        </select>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Baan</th>
+            <th>Land</th>
+            <th>Jaren</th>
+          </tr>
+        </thead>
+        <tbody id="table"></tbody>
+      </table>
+
+      <div id="map"></div>
+    </div>
+
+    <script>
+      const banen = [
+        {
+          naam: "Bergvliet",
+          land: "NL",
+          jaren: [2020],
+          coords: [51.565, 4.675],
+        },
+        {
+          naam: "Brunssummerheide",
+          land: "NL",
+          jaren: [2014, 2015],
+          coords: [50.946, 5.978],
+        },
+        {
+          naam: "Crossmoor",
+          land: "NL",
+          jaren: [2022],
+          coords: [51.261, 5.804],
+        },
+        {
+          naam: "Damme GCC",
+          land: "BE",
+          jaren: [2017],
+          coords: [51.251, 3.281],
+        },
+        {
+          naam: "De Batouwe",
+          land: "NL",
+          jaren: [2021],
+          coords: [51.889, 5.371],
+        },
+        {
+          naam: "De Compagnie",
+          land: "NL",
+          jaren: [2023],
+          coords: [53.084, 6.733],
+        },
+        {
+          naam: "De Dommel",
+          land: "NL",
+          jaren: [2020],
+          coords: [51.445, 5.464],
+        },
+        {
+          naam: "De Twentsche",
+          land: "NL",
+          jaren: [2018, 2025],
+          coords: [52.258, 6.842],
+        },
+        {
+          naam: "Eindhovensche",
+          land: "NL",
+          jaren: [2019, 2022],
+          coords: [51.441, 5.5],
+        },
+        {
+          naam: "Gelpenberg",
+          land: "NL",
+          jaren: [2023],
+          coords: [52.742, 6.846],
+        },
+        { naam: "Moyland", land: "DE", jaren: [2021], coords: [51.78, 6.227] },
+        {
+          naam: "Kempense",
+          land: "BE",
+          jaren: [2024],
+          coords: [51.263, 5.085],
+        },
+        {
+          naam: "Lauswolt",
+          land: "NL",
+          jaren: [2023],
+          coords: [53.097, 6.126],
+        },
+        {
+          naam: "Lochem",
+          land: "NL",
+          jaren: [2018, 2025],
+          coords: [52.159, 6.414],
+        },
+        {
+          naam: "Royal Antwerp",
+          land: "BE",
+          jaren: [2017],
+          coords: [51.279, 4.41],
+        },
+        {
+          naam: "Sart-Tilman",
+          land: "BE",
+          jaren: [2016, 2024],
+          coords: [50.582, 5.566],
+        },
+        {
+          naam: "Spa Fagnes",
+          land: "BE",
+          jaren: [2024],
+          coords: [50.485, 5.864],
+        },
+        {
+          naam: "Stippelberg",
+          land: "NL",
+          jaren: [2022],
+          coords: [51.514, 5.922],
+        },
+        { naam: "Sybrook", land: "NL", jaren: [2025], coords: [52.33, 6.845] },
+        {
+          naam: "Toxandria",
+          land: "NL",
+          jaren: [2020],
+          coords: [51.505, 4.878],
+        },
+      ];
+
+      // kleur per land
+      function kleur(land) {
+        return land === "NL" ? "green" : land === "BE" ? "blue" : "orange";
+      }
+
+      const map = L.map("map").setView([51.5, 5.5], 6);
+
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(
+        map,
+      );
+
+      const cluster = L.markerClusterGroup();
+      map.addLayer(cluster);
+
+      function update() {
+        const zoek = document.getElementById("zoek").value.toLowerCase();
+        const jaarFilter = document.getElementById("jaarFilter").value;
+
+        cluster.clearLayers();
+
+        let gefilterd = banen.filter((b) => {
+          return (
+            b.naam.toLowerCase().includes(zoek) &&
+            (jaarFilter === "" || b.jaren.includes(parseInt(jaarFilter)))
+          );
+        });
+
+        // stats
+        document.getElementById("banenCount").innerText = gefilterd.length;
+        document.getElementById("jaarCount").innerText = new Set(
+          gefilterd.flatMap((b) => b.jaren),
+        ).size;
+        document.getElementById("landen").innerText = [
+          ...new Set(gefilterd.map((b) => b.land)),
+        ].join(", ");
+
+        // meest gespeelde baan
+        let top = Math.max(...banen.map((b) => b.jaren.length));
+
+        // tabel
+        const t = document.getElementById("table");
+        t.innerHTML = "";
+
+        gefilterd.forEach((b) => {
+          const isTop = b.jaren.length === top;
+
+          t.innerHTML += `<tr class="${isTop ? "highlight" : ""}">
+      <td>${b.naam}</td>
+      <td>${b.land}</td>
+      <td>${b.jaren.join(", ")}</td>
+    </tr>`;
+
+          const marker = L.circleMarker(b.coords, {
+            color: kleur(b.land),
+            radius: 8,
+          }).bindPopup(`${b.naam}<br>${b.land}<br>${b.jaren.join(", ")}`);
+
+          cluster.addLayer(marker);
+        });
+      }
+
+      update();
+    </script>
+  </body>
+</html>
