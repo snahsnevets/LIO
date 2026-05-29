@@ -127,12 +127,12 @@ header p {
 
 /* Gradient styles for each year */
 .tile-2026 {
-  background: linear-gradient(135deg, #ff9a56 0%, #ff6b6b 100%);
+  background: linear-gradient(135deg, #f7b484 0%, #ff6b6b 100%);
   animation-delay: 0.05s;
 }
 
 .tile-history {
-  background: linear-gradient(135deg, #667eea 0%, #4facfe 100%);
+  background: linear-gradient(135deg, #cba4ed 0%, #7b4ffe 100%);
   animation-delay: 0.1s;
 }
 .tile-map {
