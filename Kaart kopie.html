@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <title>Limburg Open - Kaart</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Leaflet CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      h1 {
+        text-align: center;
+        margin: 10px;
+        color: #1a472a;
+      }
+
+      #map {
+        height: 90vh;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <div class="container">
+    <!-- History Panel - Initially visible -->
+    <div id="historyPanel" class="history-panel">
+      <div class="history-content">
+        <button class="close-btn" onclick="closeHistory()">✕</button>
+        <h2>⛳ Limburg Open - Golfbanen kaart</h2>
+        <body>
+          <div id="map"></div>
+
+          <!-- Leaflet JS -->
+          <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+          <script>
+            // Kaart starten (midden NL/BE)
+            var map = L.map("map").setView([52.03, 5.957], 8);
+
+            // OpenStreetMap laag
+            L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+              attribution: "&copy; OpenStreetMap",
+            }).addTo(map);
+
+            // Banen (naam, lat, lng, info)
+            const banen = [
+              ["Landgoed Bergvliet (2020)", 51.6441, 4.8083],
+              ["Golfclub Brunssummerheide (2014, 2015)", 50.9419, 6.0041],
+              ["Golf & Countryclub Crossmoor (2022)", 51.2229, 5.6438],
+              ["Damme Golf & Country Club (2017)", 51.2052, 3.3364],
+              ["Betouwse Golfclub De Batouwe (2021)", 51.9197, 5.4116],
+              ["Golfclub de Compagnie (2023)", 53.0886, 6.7828],
+              ["Eindhovensche Golf [De Dommel] (2020)", 51.3654, 5.4497], // Let op: De Dommel ligt in Valkenswaard/Aalst
+              ["Golfpark De Haenen (2020)", 51.6053, 4.8217],
+              ["Golfclub De Koepel (2025)", 52.3368, 6.5517],
+              ["De Peelse Golf (2022)", 51.3789, 5.9221],
+              ["De Twentsche Golfclub (2018, 2025)", 52.2289, 6.6917],
+              ["Driene Golfclub (2025)", 52.2612, 6.8152],
+              ["Eindhovensche Golf (2019, 2022)", 51.3654, 5.4497],
+              ["Drentse Golfclub De Gelpenberg (2023)", 52.7712, 6.7824],
+              ["Golf International Moyland (2021)", 51.7516, 6.2234],
+              ["Golfbaan 't Woold (2019)", 51.4024, 5.7275],
+              ["Golfclub Haviksoord (2022)", 51.3792, 5.6022],
+              ["Golf & Country Club Herkenbosch (2019)", 51.1541, 6.0645],
+              ["Hilversumsche Golf Club (2018)", 52.2033, 5.1764],
+              ["Golf & Country Club Hoenshuis (2014)", 50.8698, 5.9451],
+              ["Golfclub Hooge Graven (2018)", 52.5152, 6.4601],
+              ["Kempense Golf Club (2024)", 51.2583, 5.2536],
+              ["Royal Zoute Golf Club (2017)", 51.3533, 3.3087],
+              ["Golf & Country Club Lauswolt (2023)", 53.0594, 6.1158],
+              ["Royal Limburg Golf (2014, 2015, 2016, 2024)", 51.0412, 5.3854],
+              ["Golfclub de Graafschap [Lochem] (2018, 2025)", 52.1388, 6.4472],
+              ["Golfbaan Het Rijk van Margraten (2014)", 50.8258, 5.7981],
+              ["Millennium Golf (2015)", 51.0954, 5.2152],
+              ["Noord-Nederlandse Golf & Country Club (2023)", 53.1362, 6.6908],
+              [
+                "Het Rijk van Nijmegen - Nijmeegse Baan (2021)",
+                51.7742,
+                5.9306,
+              ],
+              [
+                "Het Rijk van Nijmegen - Groesbeekse Baan (2021)",
+                51.7784,
+                5.9348,
+              ],
+              ["Het Rijk van Nunspeet (2023)", 52.3686, 5.7689],
+              ["Royal Ostend Golf Club (2017)", 51.2597, 2.9519],
+              ["Rosendaelsche Golfclub (2021)", 52.0194, 5.9221],
+              ["Royal Antwerp Golf Club (2017)", 51.3655, 4.5415],
+              ["Royal Latem Golf Club (2017)", 51.0116, 3.6338],
+              ["Royal Golf Club du Sart Tilman (2016, 2024)", 50.5758, 5.5714],
+              ["Sallandsche Golfclub 'de Hoek' (2018)", 52.2741, 6.2792],
+              ["Golfbaan De Swinckelsche (2019)", 51.3789, 5.6742],
+              ["Royal Golf Club des Fagnes [Spa] (2024)", 50.4851, 5.8924],
+              ["Spiegelven Golf Club (2016)", 50.9782, 5.5341],
+              ["Steenhoven Country Club (2019)", 51.2721, 5.1764],
+              ["Golfbaan Stippelberg (2022)", 51.5458, 5.8087],
+              ["Golfbaan Het Rijk van Sybrook (2025)", 52.2778, 6.9458],
+              ["Golf Edge [Toxandria] (2020)", 51.5492, 4.8604],
+              ["Golfclub Wouwse Plantage (2020)", 51.5204, 4.4172],
+            ];
+
+            // Markers plaatsen
+            banen.forEach(function (baan) {
+              L.marker([baan[1], baan[2]]).addTo(map).bindPopup(baan[0]);
+            });
+          </script>
+          <script>
+            function closeHistory() {
+              window.location.href = "index.html";
+            }
+          </script>
+        </body>
+      </div>
+    </div>
+  </div>
+</html>
