@@ -135,6 +135,10 @@ header p {
   background: linear-gradient(135deg, #667eea 0%, #4facfe 100%);
   animation-delay: 0.1s;
 }
+.tile-map {
+  background: linear-gradient(135deg, #667eea 0%, #4facfe 100%);
+  animation-delay: 0.1s;
+}
 
 .tile-2025 {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
