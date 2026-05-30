@@ -13,8 +13,26 @@
 
     <style>
       #map {
-        height: 90vh;
+        height: 80vh;
         width: 100%;
+      }
+      /* Styling voor de jaarkiezer */
+      .filter-wrapper {
+        margin: 15px 0;
+        font-family: Arial, sans-serif;
+      }
+      .filter-wrapper label {
+        font-weight: bold;
+        margin-right: 10px;
+        color: #333;
+      }
+      .filter-wrapper select {
+        padding: 6px 12px;
+        font-size: 15px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        cursor: pointer;
       }
     </style>
   </head>
@@ -25,6 +43,26 @@
           <button class="close-btn" onclick="closeHistory()">✕</button>
           <h2>⛳ Limburg Open - Golfbanen</h2>
 
+          <div class="filter-wrapper">
+            <label for="jaarSelect">Selecteer een jaar:</label>
+            <select id="jaarSelect" onchange="updateKaart()">
+              <option value="alle">Toon alle banen</option>
+              <option value="2014">2014</option>
+              <option value="2015">2015</option>
+              <option value="2016">2016</option>
+              <option value="2017">2017</option>
+              <option value="2018">2018</option>
+              <option value="2019">2019</option>
+              <option value="2020">2020</option>
+              <option value="2021">2021</option>
+              <option value="2022">2022</option>
+              <option value="2023">2023</option>
+              <option value="2024">2024</option>
+              <option value="2025">2025</option>
+              <option value="2026">2026</option>
+            </select>
+          </div>
+
           <div id="map"></div>
         </div>
       </div>
@@ -33,10 +71,10 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
     <script>
-      // Kaart starten (We starten op een standaardpunt, maar passen dit hieronder automatisch aan)
+      // Kaart starten
       var map = L.map("map").setView([51.5, 5.5], 8);
 
-      // Esri World Topo Map laag (Standaard heldere kaart)
+      // Esri World Topo Map laag
       L.tileLayer(
         "https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}",
         {
@@ -45,7 +83,7 @@
         },
       ).addTo(map);
 
-      // Banen (naam, lat, lng)
+      // De volledige dataset met alle 48 banen
       const banen = [
         ["Landgoed Bergvliet (2020)", 51.63469777124828, 4.793527107052751],
         [
@@ -222,21 +260,40 @@
       ];
 
       // Een groep aanmaken om alle markers in op te vangen
-      var markerGroup = L.featureGroup();
+      var markerGroup = L.featureGroup().addTo(map);
 
-      // Markers plaatsen en toevoegen aan de groep
-      banen.forEach(function (baan) {
-        var marker = L.marker([baan[1], baan[2]]).bindPopup(
-          "<b>" + baan[0] + "</b>",
-        );
-        markerGroup.addLayer(marker);
-      });
+      // De update-functie die reageert op de dropdown
+      function updateKaart() {
+        // Wis alle huidige markers op de kaart
+        markerGroup.clearLayers();
 
-      // Voeg de groep toe aan de kaart
-      markerGroup.addTo(map);
+        // Haal het gekozen jaar op uit de selectie
+        var gekozenJaar = document.getElementById("jaarSelect").value;
 
-      // SLIMME FUNCTIE: Zorg dat de kaart automatisch inzoomt zodat álle banen precies in het scherm passen
-      map.fitBounds(markerGroup.getBounds().pad(0.1));
+        // Loop door alle banen
+        banen.forEach(function (baan) {
+          var baanNaam = baan[0];
+          var lat = baan[1];
+          var lng = baan[2];
+
+          // Controleer of het gekozen jaar in de naamtekst voorkomt (bijv. "(2020)")
+          // of dat de optie 'alle' is geselecteerd
+          if (gekozenJaar === "alle" || baanNaam.includes(gekozenJaar)) {
+            var marker = L.marker([lat, lng]).bindPopup(
+              "<b>" + baanNaam + "</b>",
+            );
+            markerGroup.addLayer(marker);
+          }
+        });
+
+        // Alleen zoomen als er daadwerkelijk markers op de kaart staan
+        if (markerGroup.getLayers().length > 0) {
+          map.fitBounds(markerGroup.getBounds().pad(0.1));
+        }
+      }
+
+      // Start de kaart de eerste keer op met álle banen in beeld
+      updateKaart();
     </script>
 
     <script>
