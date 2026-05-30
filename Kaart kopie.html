@@ -16,6 +16,7 @@
         height: 80vh;
         width: 100%;
       }
+      /* Styling voor de jaarkiezer */
       .filter-wrapper {
         margin: 15px 0;
         font-family: Arial, sans-serif;
@@ -32,11 +33,6 @@
         border: 1px solid #ccc;
         background-color: #fff;
         cursor: pointer;
-      }
-
-      /* Styling voor de rode huisjes-marker zodat deze eruit springt */
-      .red-marker {
-        filter: hue-rotate(140deg);
       }
     </style>
   </head>
@@ -75,8 +71,10 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
     <script>
+      // Kaart starten
       var map = L.map("map").setView([51.5, 5.5], 8);
 
+      // Esri World Topo Map laag
       L.tileLayer(
         "https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}",
         {
@@ -85,36 +83,7 @@
         },
       ).addTo(map);
 
-      // 1. DATASET ACCOMMODATIES 
-      const huisjes = [
-        {
-          jaar: "2025",
-          naam: "🏡 Landhuis het Eyminck (Albergerweg 22a 7625 RP Zenderen)",
-          lat: 52.32909839160796,
-          lng: 6.728474750549839,
-        },
-        {
-          jaar: "2021",
-          naam: "🏡 Ons Huisje 2021 (Hotel De Ruwenberg)",
-          lat: 51.658,
-          lng: 5.312,
-        },
-        {
-          jaar: "2022",
-          naam: "🏡 Ons Huisje 2022 (Vakantiepark Weerterbergen)",
-          lat: 51.272,
-          lng: 5.688,
-        },
-        {
-          jaar: "2026",
-          naam: "🏡 Landhuis het Eyminck (Albergerweg 22a 7625 RP Zenderen)",
-          lat: 52.32909839160796,
-          lng: 6.728474750549839,
-        },
-        // Je kunt hier eenvoudig nieuwe jaren aan toevoegen volgens dit patroon
-      ];
-
-      // 2. DATASET GOLFBANEN
+      // De volledige dataset met alle 48 banen
       const banen = [
         ["Landgoed Bergvliet (2020)", 51.63469777124828, 4.793527107052751],
         [
@@ -290,40 +259,25 @@
         ["Weleveld Golf (2026)", 52.334995536550224, 6.732071439289693],
       ];
 
+      // Een groep aanmaken om alle markers in op te vangen
       var markerGroup = L.featureGroup().addTo(map);
 
-      // Maak een speciale rode marker-stijl voor het huisje
-      var redIcon = L.icon({
-        iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
-        shadowUrl:
-          "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
-        iconSize: [25, 41],
-        iconAnchor: [12, 41],
-        popupAnchor: [1, -34],
-        shadowSize: [41, 41],
-        className: "red-marker", // Maakt de marker rood via de CSS filter hierboven
-      });
-
+      // De update-functie die reageert op de dropdown
       function updateKaart() {
+        // Wis alle huidige markers op de kaart
         markerGroup.clearLayers();
+
+        // Haal het gekozen jaar op uit de selectie
         var gekozenJaar = document.getElementById("jaarSelect").value;
 
-        // A. PLAATS HET HUISJE VAN DAT JAAR (INDIEN BESCHIKBAAR)
-        huisjes.forEach(function (huisje) {
-          if (gekozenJaar === "alle" || huisje.jaar === gekozenJaar) {
-            var marker = L.marker([huisje.lat, huisje.lng], {
-              icon: redIcon,
-            }).bindPopup(`<b>${huisje.naam}</b>`);
-            markerGroup.addLayer(marker);
-          }
-        });
-
-        // B. PLAATS DE GOLFBANEN VAN DAT JAAR
+        // Loop door alle banen
         banen.forEach(function (baan) {
           var baanNaam = baan[0];
           var lat = baan[1];
           var lng = baan[2];
 
+          // Controleer of het gekozen jaar in de naamtekst voorkomt (bijv. "(2020)")
+          // of dat de optie 'alle' is geselecteerd
           if (gekozenJaar === "alle" || baanNaam.includes(gekozenJaar)) {
             var marker = L.marker([lat, lng]).bindPopup(
               "<b>" + baanNaam + "</b>",
@@ -332,11 +286,13 @@
           }
         });
 
+        // Alleen zoomen als er daadwerkelijk markers op de kaart staan
         if (markerGroup.getLayers().length > 0) {
           map.fitBounds(markerGroup.getBounds().pad(0.1));
         }
       }
 
+      // Start de kaart de eerste keer op met álle banen in beeld
       updateKaart();
     </script>
 
