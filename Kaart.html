@@ -51,19 +51,19 @@
             <label for="jaarSelect">Selecteer een jaar:</label>
             <select id="jaarSelect" onchange="updateKaart()">
               <option value="alle">Toon alle banen</option>
-              <option value="2014">2014</option>
-              <option value="2015">2015</option>
-              <option value="2016">2016</option>
-              <option value="2017">2017</option>
-              <option value="2018">2018</option>
-              <option value="2019">2019</option>
-              <option value="2020">2020</option>
-              <option value="2021">2021</option>
-              <option value="2022">2022</option>
-              <option value="2023">2023</option>
-              <option value="2024">2024</option>
-              <option value="2025">2025</option>
               <option value="2026">2026</option>
+              <option value="2025">2025</option>
+              <option value="2024">2024</option>
+              <option value="2023">2023</option>
+              <option value="2022">2022</option>
+              <option value="2021">2021</option>
+              <option value="2020">2020</option>
+              <option value="2019">2019</option>
+              <option value="2018">2018</option>
+              <option value="2017">2017</option>
+              <option value="2016">2016</option>
+              <option value="2015">2015</option>
+              <option value="2014">2014</option>
             </select>
           </div>
 
@@ -75,7 +75,7 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
     <script>
-      var map = L.map("map").setView([51.5, 5.5], 8);
+      var map = L.map("map").setView([51.9, 5.4], 8);
 
       L.tileLayer(
         "https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}",
@@ -85,8 +85,14 @@
         },
       ).addTo(map);
 
-      // 1. DATASET ACCOMMODATIES 
+      // 1. DATASET ACCOMMODATIES
       const huisjes = [
+        {
+          jaar: "2026",
+          naam: "🏡 Landhuis het Eyminck (Albergerweg 22a 7625 RP Zenderen)",
+          lat: 52.32909839160796,
+          lng: 6.728474750549839,
+        },
         {
           jaar: "2025",
           naam: "🏡 Landhuis het Eyminck (Albergerweg 22a 7625 RP Zenderen)",
@@ -94,29 +100,66 @@
           lng: 6.728474750549839,
         },
         {
-          jaar: "2021",
-          naam: "🏡 Ons Huisje 2021 (Hotel De Ruwenberg)",
-          lat: 51.658,
-          lng: 5.312,
+          jaar: "2024",
+          naam: "🏡 Villa Campion (Avenue de la Corniche 31 4900 Spa Belgie)",
+          lat: 50.50210265026776,
+          lng: 5.885441792184282,
+        },
+        {
+          jaar: "2023",
+          naam: "🏡 Villa BlauwHemel (Hezenes 6, 7981 LC Diever)",
+          lat: 52.86355159709706,
+          lng: 6.323533680274753,
         },
         {
           jaar: "2022",
-          naam: "🏡 Ons Huisje 2022 (Vakantiepark Weerterbergen)",
-          lat: 51.272,
-          lng: 5.688,
+          naam: "🏡 De Hammermolen (Hammermolen 15, 6086 BE Neer )",
+          lat: 51.25778473167075,
+          lng: 5.98589563162468,
         },
         {
-          jaar: "2026",
-          naam: "🏡 Landhuis het Eyminck (Albergerweg 22a 7625 RP Zenderen)",
-          lat: 52.32909839160796,
-          lng: 6.728474750549839,
+          jaar: "2021",
+          naam: "🏡 classics World erlecom (Erlecomsedam 84, 6577 JE Erlecom)",
+          lat: 51.8539492991242,
+          lng: 5.955572648166762,
         },
+        {
+          jaar: "2020",
+          naam: "🏡 Bergvliet Villa’s (Salesdreef 2, 4904 SW Oosterhout)",
+          lat: 51.63593439386555,
+          lng: 4.801209177266903,
+        },
+        {
+          jaar: "2019",
+          naam: "🏡 Hoffenterhof (Moosterstraat 2, 6012 RC Haler)",
+          lat: 51.19520215283511,
+          lng: 5.77532292082748,
+        },
+        {
+          jaar: "2018",
+          naam: "🏡 Hof van Salland (Knollenhaarweg 7, 7447 PP Hellendoorn)",
+          lat: 52.43327403693735,
+          lng: 6.413729704572224,
+        },
+        {
+          jaar: "2017",
+          naam: "🏡 Hoeve De Spijker (17 Spijkerswegel Sint-Kruis Brugge, 8310, België)",
+          lat: 51.226371936567816,
+          lng: 3.27093523631989,
+        },
+        {
+          jaar: "2016",
+          naam: "🏡 Landal Mooi Zutendaal (Gijzenveldstraat 75, 3690 Zutendaal, België)",
+          lat: 50.9161256820706,
+          lng: 5.597442280029378,
+        },
+
         // Je kunt hier eenvoudig nieuwe jaren aan toevoegen volgens dit patroon
       ];
 
       // 2. DATASET GOLFBANEN
       const banen = [
-        ["Landgoed Bergvliet (2020)", 51.63469777124828, 4.793527107052751],
+        ["Bergvliet (2020)", 51.63469777124828, 4.793527107052751],
         [
           "Golfclub Brunssummerheide (2014, 2015)",
           50.935168379719755,
