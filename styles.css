@@ -16,6 +16,19 @@ body {
   margin: 0 auto;
 }
 
+.whs-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #f4f4f9;
+  color: #333;
+  transition: all 0.3s ease;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 /* Navigation Bar Styles */
 .navbar {
   position: relative;
@@ -273,6 +286,203 @@ header p {
 .tile-2020 {
   background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
   animation-delay: 0.4s;
+}
+
+/* WHS Styles */
+.whs-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.whs-container label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.whs-container select,
+.whs-container input {
+  padding: 10px;
+  margin-top: 10px;
+  width: 100%;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+.whs-container select#baan {
+  font-size: 1.1em;
+  padding: 20px;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+  margin-top: 10px;
+}
+
+.whs-container label[for="baan"] {
+  font-size: 1.1em;
+}
+
+.btn-group {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.btn {
+  min-width: 80px;
+  max-width: 80px;
+  text-align: center;
+  padding: 12px;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  color: white;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.btn.active {
+  outline: 3px solid #1565c0;
+  box-shadow: 0 0 8px rgba(0,0,0,0.3);
+}
+
+/* Tee-box kleuren */
+.btn.rood   { background: #c62828; }
+.btn.blauw  { background: #1565c0; }
+.btn.geel   { background: #fbc02d; color: black; }
+.btn.wit    { background: #e0e0e0; color: black; }
+.btn.Black  { background: #333; }
+.btn.oranje { background: #ef6c00; }
+.btn.male   { background: #fff; color: #1565c0; }
+.btn.female { background: #fff; color: #c62828; }
+
+button.calc {
+  margin-top: 20px;
+  padding: 12px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1em;
+  width: 100%;
+}
+
+button.calc:hover { 
+  background-color: #218838; 
+}
+
+#resultaat {
+  margin-top: 25px;
+  font-size: 1.3em;
+  font-weight: bold;
+  text-align: center;
+  color: darkgreen;
+}
+
+/* Handicap + slagen in één rij */
+.hcptext {
+  max-width: 100px;   
+}
+
+.hcp-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+.hcp-row label {
+  min-width: 90px;
+}
+
+.hcp-row input {
+  max-width: 100px;
+  text-align: center;
+  padding: 6px;
+}
+
+#slagen-resultaat {
+  max-width: 50px;
+  background: #eee;
+  border: 1px solid #aaa;
+  text-align: center;
+  font-weight: bold;
+  color: #1565c0;
+}
+
+/* Score invoer compacter maken */
+#score {
+  max-width: 100px;   
+  padding: 6px;
+  text-align: left;
+  display: block;
+  margin-top: 10px;
+}
+
+/* Score in één rij */
+.score-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 15px;
+}
+
+.score-row label {
+  min-width: 90px;
+}
+
+.score-row input {
+  max-width: 100px;
+  padding: 6px;
+  text-align: center;
+}
+
+/* Donkere modus */
+@media (prefers-color-scheme: dark) {
+  .whs-container {
+    background: #121212;
+    color: #eee;
+  }
+
+  .btn {
+    border-color: #444;
+  }
+
+  .whs-container input,
+  .whs-container select {
+    background: #222;
+    color: #eee;
+    border: 1px solid #444;
+  }
+
+  button.calc {
+    background-color: #1e7e34;
+  }
+
+  button.calc:hover {
+    background-color: #155d27;
+  }
+
+  #resultaat {
+    color: #80e27e;
+  }
+
+  #slagen-resultaat {
+    background: #333;
+    color: #eee;
+    border: 1px solid #555;
+  }
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .btn { 
+    flex: 1 1 45%; 
+  }
 }
 
 /* Animations */
@@ -543,6 +753,11 @@ header p {
     height: 35px;
     font-size: 24px;
   }
+
+  .whs-container {
+    margin: 20px 10px;
+    padding: 15px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -617,5 +832,18 @@ header p {
   .courses {
     font-size: 0.8rem;
     padding: 10px;
+  }
+
+  .whs-container {
+    margin: 20px 10px;
+    padding: 15px;
+    max-width: calc(100% - 20px);
+  }
+
+  .btn {
+    min-width: 70px;
+    max-width: 70px;
+    padding: 10px;
+    font-size: 0.9em;
   }
 }
