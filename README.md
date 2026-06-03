@@ -4,8 +4,14 @@ A modern, responsive web dashboard showcasing Limburg Open events from 2014-2026
 
 ## 📋 Contents
 
-- **index.html** - Main dashboard page with interactive tiles and history panel
-- **styles.css** - Styling with animations and responsive design
+- **index.html** - Main dashboard page with interactive tiles and event navigation
+- **history.html** - Interactive history modal showing all events from 2014-2025
+- **Kaart.html** - Map page displaying course locations and venues
+- **WHS.html** - World Handicap System calculator and player information
+- **styles.css** - Central styling with animations and responsive design
+- **scripts.js** - Main JavaScript functionality
+- **whs-calculator.js** - WHS calculation logic and utilities
+- **manifest.json** - PWA manifest for web app configuration
 
 ## 🚀 Features
 
@@ -13,8 +19,10 @@ A modern, responsive web dashboard showcasing Limburg Open events from 2014-2026
 - 🎨 Unique gradient color scheme for each year
 - 📱 Fully responsive design (desktop, tablet, mobile)
 - ⚡ Smooth hover animations and transitions
-- 🔗 Direct links to Adobe Express pages
-- 📜 Interactive history modal showing all events from 2014-2025
+- 🔗 Direct navigation between pages
+- 📜 Interactive history showing all events from 2014-2025
+- 🗺️ Map page for course locations
+- 🏌️ WHS calculator for handicap management
 - 🏌️ Golf-themed styling with emojis
 - 🎯 Professional modern UI design
 
@@ -29,12 +37,22 @@ A modern, responsive web dashboard showcasing Limburg Open events from 2014-2026
 - **2020**: Cyan to Purple Gradient
 - **History**: Purple to Blue Gradient
 
+## 💻 Technology Stack
+
+This project is built with:
+- **HTML**: 55.2%
+- **CSS**: 24.3%
+- **JavaScript**: 20.5%
+
 ## 📂 How to Use
 
 1. Open `index.html` in your web browser
-2. Click any year tile to visit the corresponding event page
-3. Click the "History" tile to view all events from 2014-2025
-4. Tiles open in a new tab (or show modal for history)
+2. Navigate between pages:
+   - **Main Dashboard**: View all event years and access history
+   - **History**: Click "History" tile to view all events from 2014-2025
+   - **Map**: View golf course locations across Netherlands and Belgium
+   - **WHS Calculator**: Calculate and manage player handicaps
+3. Tiles and links open in new tabs or modals
 
 ## 📜 History Panel
 
@@ -43,7 +61,19 @@ The interactive history panel displays:
 - **Participants**: All attendees for each year
 - **Golf Courses**: Complete list of venues visited
 
-Click "History" tile to toggle the modal open/close.
+## 🗺️ Map Page
+
+The Kaart.html page features:
+- Geographic visualization of golf courses
+- Course locations across Netherlands and Belgium
+- Interactive venue information
+
+## 🏌️ WHS Calculator
+
+The WHS.html page includes:
+- World Handicap System calculations
+- Player handicap management
+- Golf performance tracking utilities
 
 ## 🔧 Customization
 
