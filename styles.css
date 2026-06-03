@@ -20,8 +20,8 @@ body {
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
-  background: #f4f4f9;
-  color: #333;
+  background: linear-gradient(135deg, #667eea 0%, #4facfe 100%);
+  color: #ffffff;
   transition: all 0.3s ease;
   border-radius: 15px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
@@ -291,7 +291,12 @@ header p {
 /* WHS Styles */
 .whs-container h2 {
   text-align: center;
-  color: #333;
+
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
   margin-bottom: 20px;
 }
 
@@ -345,18 +350,38 @@ header p {
 
 .btn.active {
   outline: 3px solid #1565c0;
-  box-shadow: 0 0 8px rgba(0,0,0,0.3);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
 }
 
 /* Tee-box kleuren */
-.btn.rood   { background: #c62828; }
-.btn.blauw  { background: #1565c0; }
-.btn.geel   { background: #fbc02d; color: black; }
-.btn.wit    { background: #e0e0e0; color: black; }
-.btn.Black  { background: #333; }
-.btn.oranje { background: #ef6c00; }
-.btn.male   { background: #fff; color: #1565c0; }
-.btn.female { background: #fff; color: #c62828; }
+.btn.rood {
+  background: #c62828;
+}
+.btn.blauw {
+  background: #1565c0;
+}
+.btn.geel {
+  background: #fbc02d;
+  color: black;
+}
+.btn.wit {
+  background: #e0e0e0;
+  color: black;
+}
+.btn.Black {
+  background: #333;
+}
+.btn.oranje {
+  background: #ef6c00;
+}
+.btn.male {
+  background: #fff;
+  color: #1565c0;
+}
+.btn.female {
+  background: #fff;
+  color: #c62828;
+}
 
 button.calc {
   margin-top: 20px;
@@ -370,8 +395,8 @@ button.calc {
   width: 100%;
 }
 
-button.calc:hover { 
-  background-color: #218838; 
+button.calc:hover {
+  background-color: #218838;
 }
 
 #resultaat {
@@ -384,7 +409,7 @@ button.calc:hover {
 
 /* Handicap + slagen in één rij */
 .hcptext {
-  max-width: 100px;   
+  max-width: 100px;
 }
 
 .hcp-row {
@@ -416,7 +441,7 @@ button.calc:hover {
 
 /* Score invoer compacter maken */
 #score {
-  max-width: 100px;   
+  max-width: 100px;
   padding: 6px;
   text-align: left;
   display: block;
@@ -480,8 +505,8 @@ button.calc:hover {
 
 /* Responsive */
 @media (max-width: 500px) {
-  .btn { 
-    flex: 1 1 45%; 
+  .btn {
+    flex: 1 1 45%;
   }
 }
 
