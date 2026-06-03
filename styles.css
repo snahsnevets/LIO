@@ -83,23 +83,23 @@ body {
   background: none;
   border: none;
   cursor: pointer;
-  padding: 5px;
+  padding: 20px;
 }
 
 .hamburger {
-  width: 25px;
+  width: 50px;
   height: 3px;
   background: white;
   border-radius: 2px;
   transition: all 0.3s ease;
-  position: relative;
+  position: fixed;
 }
 
 .hamburger::before,
 .hamburger::after {
   content: "";
   position: absolute;
-  width: 25px;
+  width: 50px;
   height: 3px;
   background: white;
   border-radius: 2px;
@@ -409,7 +409,7 @@ button.calc:hover {
 
 /* Handicap + slagen in één rij */
 .hcptext {
-  max-width: 100px;
+  max-width: 80px;
 }
 
 .hcp-row {
@@ -421,11 +421,11 @@ button.calc:hover {
 }
 
 .hcp-row label {
-  min-width: 90px;
+  min-width: 80px;
 }
 
 .hcp-row input {
-  max-width: 100px;
+  max-width: 80px;
   text-align: center;
   padding: 6px;
 }
@@ -481,7 +481,7 @@ button.calc:hover {
   .whs-container select {
     background: #222;
     color: #eee;
-    border: 1px solid #444;
+    border: 1px solid #7f64ed;
   }
 
   button.calc {
@@ -737,7 +737,7 @@ button.calc:hover {
     left: 0;
     right: 0;
     flex-direction: column;
-    background: rgba(26, 71, 42, 0.98);
+    background: rgba(158, 164, 244, 0.98);
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;
@@ -785,7 +785,7 @@ button.calc:hover {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 380px) {
   body {
     padding-top: 0;
   }
@@ -798,10 +798,6 @@ button.calc:hover {
     height: auto;
     min-height: 150px;
     padding: 0 15px;
-  }
-
-  .nav-logo {
-    font-size: 1.2rem;
   }
 
   header h1 {
@@ -862,7 +858,7 @@ button.calc:hover {
   .whs-container {
     margin: 20px 10px;
     padding: 15px;
-    max-width: calc(100% - 20px);
+    max-width: calc(100% - 5px);
   }
 
   .btn {
