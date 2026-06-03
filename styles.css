@@ -8,7 +8,7 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   min-height: 100vh;
-  padding-top: 70px;
+  padding-top: 0;
 }
 
 .container {
@@ -18,7 +18,7 @@ body {
 
 /* Navigation Bar Styles */
 .navbar {
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
   right: 0;
@@ -33,13 +33,15 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
-  height: 70px;
+  height: auto;
+  min-height: 200px;
 }
 
 .nav-menu {
   display: flex;
   list-style: none;
   gap: 0;
+  align-items: center;
 }
 
 .nav-item {
@@ -118,6 +120,10 @@ header {
   color: white;
   margin-bottom: 0px;
   animation: slideDown 0.6s ease-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 200px;
 }
 
 header h1 {
@@ -458,7 +464,7 @@ header p {
 /* Responsive Design */
 @media (max-width: 768px) {
   body {
-    padding-top: 70px;
+    padding-top: 0;
   }
 
   .container {
@@ -493,7 +499,7 @@ header p {
 
   .nav-menu {
     position: absolute;
-    top: 70px;
+    top: 100%;
     left: 0;
     right: 0;
     flex-direction: column;
@@ -542,7 +548,7 @@ header p {
 
 @media (max-width: 480px) {
   body {
-    padding-top: 60px;
+    padding-top: 0;
   }
 
   .container {
@@ -550,7 +556,8 @@ header p {
   }
 
   .nav-container {
-    height: 60px;
+    height: auto;
+    min-height: 150px;
     padding: 0 15px;
   }
 
