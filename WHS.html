@@ -64,14 +64,18 @@
     </nav>
 
     <div class="whs-container">
-      <h2>WHS Score Calculator</h2>
+      <h2>Hoeveel slagen krijg je?</h2>
 
       <label for="baan">Kies baan:</label>
       <select id="baan" onchange="selectCourse()">
-        <option value="haagsche">Haagsche</option>
+        <option value="" selected disabled>-- Kies een baan --</option>
+        <option value="haagsche">Haagsche Golf en Country Club</option>
         <option value="leeuwenbergh">Leeuwenbergh</option>
-        <option value="hcr">De Hooge Rotterdamse</option>
-        <option value="liemeer">Liemeer</option>
+        <option value="scherpenbergh">De Scherpenbergh</option>
+        <option value="weleveld">Weleveld Golf</option>
+        <option value="ommen">Hooge Graven GC Ommen</option>
+        <option value="driene">Golfclub Driene</option>
+        <option value="sallandse">Sallandsche Golfclub De Hoek</option>
       </select>
 
       <div id="gender-section">
@@ -108,7 +112,9 @@
         <input type="number" id="score" min="1" placeholder="Bijv. 83" />
       </div>
 
-      <button class="calc" onclick="berekenWHS()">Berekende WHS-score</button>
+      <!--  
+      <button class="calc" onclick="berekenWHS()">Bereken de WHS-score</button>
+      -->
 
       <div id="resultaat"></div>
     </div>

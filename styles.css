@@ -6,7 +6,7 @@
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #667eea 0%, #d2b5ee 100%);
   min-height: 100vh;
   padding-top: 0;
 }
@@ -386,7 +386,7 @@ header p {
 button.calc {
   margin-top: 20px;
   padding: 12px;
-  background-color: #28a745;
+  background-color: #293ad4;
   color: white;
   border: none;
   border-radius: 6px;
@@ -396,7 +396,7 @@ button.calc {
 }
 
 button.calc:hover {
-  background-color: #218838;
+  background-color: #af0d3b;
 }
 
 #resultaat {
@@ -404,7 +404,7 @@ button.calc:hover {
   font-size: 1.3em;
   font-weight: bold;
   text-align: center;
-  color: darkgreen;
+  color: white;
 }
 
 /* Handicap + slagen in één rij */
@@ -485,11 +485,11 @@ button.calc:hover {
   }
 
   button.calc {
-    background-color: #1e7e34;
+    background-color: #293ad4;
   }
 
   button.calc:hover {
-    background-color: #155d27;
+    background-color: #293ad4;
   }
 
   #resultaat {
