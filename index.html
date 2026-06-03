@@ -56,10 +56,10 @@
             <a href="index.html" class="nav-link active">Home</a>
           </li>
           <li class="nav-item">
-            <a href="https://www.codyx.nl/WHS.html" class="nav-link">Handicap</a>
+            <a href="WHS.html" class="nav-link">Handicap</a>
           </li>
         </ul>
-      </div
+      </div>
     </nav>
 
     <div class="container">
@@ -188,23 +188,7 @@
       </div>
     </div>
 
-    <!-- Menu Toggle Script -->
-    <script>
-      const menuToggle = document.getElementById('menuToggle');
-      const navMenu = document.getElementById('navMenu');
-
-      menuToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-        menuToggle.classList.toggle('active');
-      });
-
-      // Close menu when a link is clicked
-      document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-          navMenu.classList.remove('active');
-          menuToggle.classList.remove('active');
-        });
-      });
-    </script>
+    <!-- Scripts -->
+    <script src="scripts.js"></script>
   </body>
 </html>
