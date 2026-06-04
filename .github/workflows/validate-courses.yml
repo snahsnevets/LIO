@@ -1,0 +1,24 @@
+name: Validate courses.json
+
+on:
+  push:
+    paths:
+      - "courses.json"
+      - "validate-courses.js"
+      - ".github/workflows/**"
+  pull_request:
+    paths:
+      - "courses.json"
+      - "validate-courses.js"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+      - name: Run course validation
+        run: node validate-courses.js

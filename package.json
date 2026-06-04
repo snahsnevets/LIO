@@ -1,0 +1,11 @@
+{
+  "name": "lio-whs",
+  "version": "1.0.0",
+  "description": "Validation and tooling for LIO WHS calculator",
+  "scripts": {
+    "validate:courses": "node validate-courses.js"
+  },
+  "engines": {
+    "node": ">=14"
+  }
+}
