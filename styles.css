@@ -92,7 +92,7 @@ body {
   background: white;
   border-radius: 2px;
   transition: all 0.3s ease;
-  position: fixed;
+  position: relative;
 }
 
 .hamburger::before,
