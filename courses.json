@@ -1,0 +1,103 @@
+{
+  "haagsche": {
+    "name": "Haagsche Golf en Country Club",
+    "par": 72,
+    "male": {
+      "Black": { "SR": 147, "CR": 76.6 },
+      "wit": { "SR": 149, "CR": 76.0 },
+      "geel": { "SR": 148, "CR": 72.9 },
+      "blauw": { "SR": 140, "CR": 70.7 },
+      "rood": { "SR": 133, "CR": 69.6 }
+    },
+    "female": {
+      "geel": { "SR": 150, "CR": 79.3 },
+      "blauw": { "SR": 146, "CR": 77.0 },
+      "rood": { "SR": 143, "CR": 75.6 },
+      "oranje": { "SR": 128, "CR": 72.3 }
+    }
+  },
+  "leeuwenbergh": {
+    "name": "Leeuwenbergh",
+    "par": 71,
+    "male": {
+      "wit": { "SR": 138, "CR": 71.4 },
+      "geel": { "SR": 132, "CR": 70.4 },
+      "blauw": { "SR": 122, "CR": 68.6 },
+      "rood": { "SR": 115, "CR": 66.6 }
+    },
+    "female": {
+      "geel": { "SR": 148, "CR": 76.3 },
+      "blauw": { "SR": 140, "CR": 73.4 },
+      "rood": { "SR": 130, "CR": 71.5 },
+      "oranje": { "SR": 119, "CR": 69.1 }
+    }
+  },
+  "scherpenbergh": {
+    "name": "De Scherpenbergh",
+    "par": 72,
+    "male": {
+      "geel": { "SR": 127, "CR": 70.3 },
+      "rood": { "SR": 117, "CR": 66.2 }
+    },
+    "female": {
+      "geel": { "SR": 140, "CR": 76.4 },
+      "rood": { "SR": 124, "CR": 71.6 }
+    }
+  },
+  "weleveld": {
+    "name": "Weleveld Golf",
+    "par": 72,
+    "male": {
+      "geel": { "SR": 130, "CR": 69.4 },
+      "rood": { "SR": 110, "CR": 66.0 }
+    },
+    "female": {
+      "geel": { "SR": 147, "CR": 75.4 },
+      "rood": { "SR": 129, "CR": 70.7 }
+    }
+  },
+  "driene": {
+    "name": "Golfclub Driene",
+    "par": 72,
+    "male": {
+      "geel": { "SR": 124, "CR": 69.5 },
+      "rood": { "SR": 112, "CR": 66.8 }
+    },
+    "female": {
+      "geel": { "SR": 137, "CR": 74.8 },
+      "rood": { "SR": 134, "CR": 71.7 }
+    }
+  },
+  "ommen": {
+    "name": "Hooge Graven GC Ommen",
+    "par": 72,
+    "male": {
+      "wit": { "SR": 141, "CR": 73.7 },
+      "geel": { "SR": 137, "CR": 72.9 },
+      "blauw": { "SR": 127, "CR": 70.1 },
+      "rood": { "SR": 122, "CR": 68.5 }
+    },
+    "female": {
+      "geel": { "SR": 145, "CR": 79.4 },
+      "blauw": { "SR": 143, "CR": 75.5 },
+      "rood": { "SR": 135, "CR": 73.7 },
+      "oranje": { "SR": 121, "CR": 69.6 }
+    }
+  },
+  "sallandse": {
+    "name": "Sallandsche Golfclub De Hoek",
+    "par": 72,
+    "male": {
+      "wit": { "SR": 131, "CR": 72.4 },
+      "geel": { "SR": 128, "CR": 71.5 },
+      "blauw": { "SR": 118, "CR": 68.5 },
+      "rood": { "SR": 115, "CR": 67.4 }
+    },
+    "female": {
+      "geel": { "SR": 140, "CR": 77.4 },
+      "blauw": { "SR": 130, "CR": 73.8 },
+      "rood": { "SR": 128, "CR": 72.6 },
+      "oranje": { "SR": 112, "CR": 67.6 }
+    }
+  }
+}
