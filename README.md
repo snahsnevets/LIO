@@ -170,8 +170,8 @@ This repository includes an automated validation step to ensure `courses.json` i
 - Run locally:
 
 ```bash
-# Validate using Node.js
-node validate-courses.js
+# Validate using Node.js (validator moved to `tools/`)
+node tools/validate-courses.js
 
 # Or using npm (from repository root)
 npm run validate:courses

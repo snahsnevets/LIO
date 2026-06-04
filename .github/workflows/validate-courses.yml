@@ -4,12 +4,12 @@ on:
   push:
     paths:
       - "courses.json"
-      - "validate-courses.js"
+      - "tools/**"
       - ".github/workflows/**"
   pull_request:
     paths:
       - "courses.json"
-      - "validate-courses.js"
+      - "tools/**"
 
 jobs:
   validate:
@@ -21,4 +21,4 @@ jobs:
         with:
           node-version: "18"
       - name: Run course validation
-        run: node validate-courses.js
+        run: node tools/validate-courses.js
