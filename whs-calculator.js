@@ -8,7 +8,7 @@ let selectedTee = null;
 // Load courses from JSON file and populate the dropdown
 async function loadCourses() {
   try {
-    const response = await fetch("courses.json");
+    const response = await fetch("courses.json?v=1.1");
     courses = await response.json();
     populateCoursesDropdown();
   } catch (error) {
