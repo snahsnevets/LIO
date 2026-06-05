@@ -291,12 +291,10 @@ header p {
 /* WHS Styles */
 .whs-container h2 {
   text-align: center;
-
   font-size: 1.8rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
-
   margin-bottom: 20px;
 }
 
@@ -375,10 +373,12 @@ header p {
   background: #ef6c00;
 }
 .btn.male {
+  text-align: center;
   background: #fff;
   color: #1565c0;
 }
 .btn.female {
+  text-align: center;
   background: #fff;
   color: #c62828;
 }
