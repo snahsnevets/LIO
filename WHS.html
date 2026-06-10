@@ -63,57 +63,79 @@
       </div>
     </nav>
 
-    <div class="whs-container">
-      <h2>Hoeveel slagen krijg je?</h2>
+    <div class="container">
+      <header>
+        <h1>⛳ Limburg Open</h1>
+        <p>WHS-score calculator voor club- en toernooi-spelers</p>
+      </header>
 
-      <label for="baan">Kies baan:</label>
-      <select id="baan" onchange="selectCourse()">
-        <option value="" selected disabled>-- Kies een baan --</option>
-      </select>
+      <section class="whs-container">
+        <h2>Bereken je WHS-score</h2>
+        <p class="help-text">
+          Kies een baan en geslacht, selecteer een tee-box, vul je handicap en
+          ronde score in om direct het resultaat te zien.
+        </p>
 
-      <div id="gender-section">
-        <label>Geslacht:</label>
-        <div id="gender-buttons" class="btn-group">
-          <div class="btn male" onclick="selectGender('male')">Male</div>
-          <div class="btn female" onclick="selectGender('female')">Female</div>
+        <div class="field-group">
+          <label for="baan">Kies baan</label>
+          <select id="baan" onchange="selectCourse()">
+            <option value="" selected disabled>-- Kies een baan --</option>
+          </select>
         </div>
-      </div>
 
-      <div id="hcp-section">
-        <div class="hcp-row">
-          <label for="slagen-resultaat">Handicap:</label>
-          <input
-            type="number"
-            id="hcp"
-            step="0.1"
-            min="-10"
-            max="54"
-            placeholder="8.2"
-          />
-          <span
-            ><label for="slagen-resultaat" id="slagen-label"
-              >Slagen:</label
-            ></span
-          >
-          <input type="text" id="slagen-resultaat" readonly />
+        <div class="field-group" id="gender-section" style="display: none">
+          <label>Geslacht</label>
+          <div id="gender-buttons" class="btn-group">
+            <div class="btn btn-toggle male" onclick="selectGender('male')">
+              Man
+            </div>
+            <div class="btn btn-toggle female" onclick="selectGender('female')">
+              Vrouw
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div id="tee-section">
-        <label>Tee-box:</label>
-        <div id="tee-buttons" class="btn-group"></div>
-      </div>
+        <div class="field-group" id="tee-section" style="display: none">
+          <label>Tee-box</label>
+          <div id="tee-buttons" class="btn-group"></div>
+        </div>
 
-      <div class="score-row">
-        <label for="score">Score:</label>
-        <input type="number" id="score" min="1" placeholder="Bijv. 83" />
-      </div>
+        <div class="field-grid">
+          <div class="field-block">
+            <label for="hcp">Handicap</label>
+            <input
+              type="number"
+              id="hcp"
+              step="0.1"
+              min="-10"
+              max="54"
+              placeholder="8.2"
+            />
+          </div>
 
-      <!--  
-      <button class="calc" onclick="berekenWHS()">Bereken de WHS-score</button>
-      -->
+          <div class="field-block">
+            <label for="slagen-resultaat">Slagen</label>
+            <input
+              type="text"
+              id="slagen-resultaat"
+              readonly
+              aria-readonly="true"
+              placeholder="—"
+            />
+          </div>
+        </div>
 
-      <div id="resultaat"></div>
+        <div class="field-group score-row">
+          <label for="score">Ronde score</label>
+          <input type="number" id="score" min="1" placeholder="Bijv. 83" />
+        </div>
+
+        <button class="calc" type="button" onclick="berekenWHS()">
+          Bereken WHS
+        </button>
+
+        <div id="resultaat" class="result-panel" aria-live="polite"></div>
+      </section>
     </div>
 
     <!-- Menu Toggle Script and WHS Calculator Script -->

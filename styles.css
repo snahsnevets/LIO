@@ -289,40 +289,76 @@ header p {
 }
 
 /* WHS Styles */
+.whs-container {
+  max-width: 720px;
+  margin: 20px auto 40px;
+  padding: 32px;
+  background: rgba(255, 255, 255, 0.96);
+  color: #1a1a1a;
+  transition: all 0.3s ease;
+  border-radius: 24px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(10px);
+}
+
+.help-text {
+  margin: 0 auto 28px;
+  max-width: 680px;
+  color: #4a4a4a;
+  font-size: 1rem;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.field-group {
+  margin-top: 18px;
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(190px, 1fr));
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.field-block {
+  display: flex;
+  flex-direction: column;
+}
+
 .whs-container h2 {
   text-align: center;
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
+  color: #1b1b1b;
 }
 
 .whs-container label {
   display: block;
-  margin-top: 15px;
-  font-weight: bold;
+  margin-bottom: 8px;
+  font-weight: 700;
+  color: #333;
 }
 
 .whs-container select,
 .whs-container input {
-  padding: 10px;
-  margin-top: 10px;
+  padding: 14px;
+  margin-top: 6px;
   width: 100%;
-  font-size: 1em;
+  font-size: 1rem;
   box-sizing: border-box;
+  background: #fff;
+  color: #1a1a1a;
+  border: 1px solid #ced4da;
+  border-radius: 12px;
 }
 
 .whs-container select#baan {
-  font-size: 1.1em;
-  padding: 20px;
-  border-radius: 6px;
-  border: 1px solid #aaa;
-  margin-top: 10px;
-}
-
-.whs-container label[for="baan"] {
-  font-size: 1.1em;
+  padding: 16px;
 }
 
 .btn-group {
@@ -334,29 +370,39 @@ header p {
 
 .btn {
   min-width: 80px;
-  max-width: 80px;
+  max-width: 120px;
   text-align: center;
-  padding: 12px;
-  border: 1px solid #aaa;
-  border-radius: 6px;
+  padding: 12px 16px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
   cursor: pointer;
-  font-size: 1em;
-  color: white;
-  font-weight: bold;
+  font-size: 1rem;
+  color: #1a1a1a;
+  font-weight: 700;
   transition: all 0.2s ease;
+  background: #f8f9ff;
 }
 
-.btn.active {
-  outline: 3px solid #1565c0;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+.btn:hover {
+  transform: translateY(-1px);
+  background: #edf2ff;
+}
+
+.btn.active,
+.btn.btn-toggle.active {
+  outline: 3px solid #4facfe;
+  box-shadow: 0 0 14px rgba(79, 172, 254, 0.28);
+  background: #eaf4ff;
 }
 
 /* Tee-box kleuren */
 .btn.rood {
   background: #c62828;
+  color: white;
 }
 .btn.blauw {
   background: #1565c0;
+  color: white;
 }
 .btn.geel {
   background: #fbc02d;
@@ -368,48 +414,51 @@ header p {
 }
 .btn.Black {
   background: #333;
+  color: white;
 }
 .btn.oranje {
   background: #ef6c00;
+  color: white;
 }
 .btn.male {
-  text-align: center;
-  background: #fff;
+  background: #eef6ff;
   color: #1565c0;
 }
 .btn.female {
-  text-align: center;
-  background: #fff;
+  background: #fff0f0;
   color: #c62828;
 }
 
 button.calc {
-  margin-top: 20px;
-  padding: 12px;
+  margin-top: 24px;
+  padding: 16px;
   background-color: #293ad4;
   color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: 12px;
   cursor: pointer;
-  font-size: 1.1em;
+  font-size: 1.05em;
   width: 100%;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
 }
 
 button.calc:hover {
-  background-color: #af0d3b;
+  background-color: #1f2ea3;
+  transform: translateY(-1px);
 }
 
-#resultaat {
-  margin-top: 25px;
-  font-size: 1.3em;
-  font-weight: bold;
+.result-panel {
+  margin-top: 24px;
+  padding: 18px 22px;
+  border-radius: 18px;
+  background: #eef3ff;
+  border: 1px solid rgba(34, 90, 255, 0.18);
+  color: #1b2376;
+  font-size: 1.1rem;
+  font-weight: 700;
   text-align: center;
-  color: white;
-}
-
-/* Handicap + slagen in één rij */
-.hcptext {
-  max-width: 80px;
 }
 
 .hcp-row {
@@ -439,7 +488,6 @@ button.calc:hover {
   color: #1565c0;
 }
 
-/* Score invoer compacter maken */
 #score {
   max-width: 100px;
   padding: 6px;
@@ -448,7 +496,6 @@ button.calc:hover {
   margin-top: 10px;
 }
 
-/* Score in één rij */
 .score-row {
   display: flex;
   align-items: center;
@@ -471,10 +518,13 @@ button.calc:hover {
   .whs-container {
     background: #121212;
     color: #eee;
+    border-color: rgba(255, 255, 255, 0.12);
   }
 
   .btn {
     border-color: #444;
+    background: #1b1b1b;
+    color: #f1f1f1;
   }
 
   .whs-container input,
@@ -489,7 +539,7 @@ button.calc:hover {
   }
 
   button.calc:hover {
-    background-color: #293ad4;
+    background-color: #1f2ea3;
   }
 
   #resultaat {
@@ -500,6 +550,12 @@ button.calc:hover {
     background: #333;
     color: #eee;
     border: 1px solid #555;
+  }
+}
+
+@media (max-width: 768px) {
+  .field-grid {
+    grid-template-columns: 1fr;
   }
 }
 
