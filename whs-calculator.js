@@ -97,28 +97,51 @@ function updateActiveButton(containerId, value) {
 
 function berekenSlagen() {
   const hcp = parseFloat(document.getElementById("hcp").value);
+  const hcpResult = document.getElementById("hcp-resultaat");
+
   if (!selectedCourse || !selectedGender || !selectedTee || isNaN(hcp)) {
     document.getElementById("slagen-resultaat").value = "";
+    if (hcpResult) hcpResult.innerText = "";
     return;
   }
+
   const { SR, CR } = courses[selectedCourse][selectedGender][selectedTee];
   const par = courses[selectedCourse].par;
   let slagen = (hcp * SR) / 113 + (CR - par);
-  document.getElementById("slagen-resultaat").value = Math.round(slagen);
+  const afgerond = Math.round(slagen);
+
+  document.getElementById("slagen-resultaat").value = afgerond;
+  if (hcpResult)
+    hcpResult.innerText = `Playing Handicap: ${afgerond} (SR=${SR}, CR=${CR})`;
 }
 
 function berekenWHS() {
   const score = parseFloat(document.getElementById("score").value);
-  if (!selectedCourse || !selectedGender || !selectedTee) return;
+  const resultaat = document.getElementById("resultaat");
+  if (!selectedCourse || !selectedGender || !selectedTee) {
+    if (resultaat) resultaat.innerText = "";
+    return;
+  }
   const { SR, CR } = courses[selectedCourse][selectedGender][selectedTee];
   const par = courses[selectedCourse].par;
   if (isNaN(score)) {
-    document.getElementById("resultaat").innerText = "";
+    if (resultaat) resultaat.innerText = "";
     return;
   }
   let whs = (113 / SR) * (score - CR);
-  document.getElementById("resultaat").innerText =
-    `WHS-score: ${whs.toFixed(1)} (Par=${par}, SR=${SR}, CR=${CR})`;
+  if (resultaat)
+    resultaat.innerText = `WHS-score: ${whs.toFixed(1)} (Par=${par}, SR=${SR}, CR=${CR})`;
+}
+
+function switchCalculatorSection(section) {
+  const sections = ["hcp", "whs"];
+  sections.forEach((name) => {
+    const tab = document.getElementById(`tab-${name}`);
+    const card = document.getElementById(`section-${name}`);
+    const isActive = name === section;
+    if (tab) tab.classList.toggle("active", isActive);
+    if (card) card.classList.toggle("active", isActive);
+  });
 }
 
 window.onload = () => {
@@ -131,5 +154,7 @@ window.onload = () => {
     document.getElementById("hcp").addEventListener("input", berekenSlagen);
 
     document.getElementById("score").addEventListener("input", berekenWHS);
+
+    switchCalculatorSection("hcp");
   }
 };

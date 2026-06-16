@@ -94,41 +94,68 @@
           <div id="tee-buttons" class="btn-group"></div>
         </div>
 
-        <div class="field-grid">
-          <div class="field-block">
-            <label for="hcp">Handicap</label>
-            <input
-              type="number"
-              id="hcp"
-              step="0.1"
-              min="-10"
-              max="54"
-              placeholder="8.2"
-            />
-          </div>
-
-          <div class="field-block">
-            <label for="slagen-resultaat">Slagen</label>
-            <input
-              type="text"
-              id="slagen-resultaat"
-              readonly
-              aria-readonly="true"
-              placeholder="—"
-            />
-          </div>
+        <div class="section-tabs">
+          <button
+            type="button"
+            class="section-btn active"
+            id="tab-hcp"
+            onclick="switchCalculatorSection('hcp')"
+          >
+            Playing Handicap
+          </button>
+          <button
+            type="button"
+            class="section-btn"
+            id="tab-whs"
+            onclick="switchCalculatorSection('whs')"
+          >
+            WHS Score
+          </button>
         </div>
 
-        <div class="field-group score-row">
-          <label for="score">Ronde score</label>
-          <input type="number" id="score" min="1" placeholder="Bijv. 83" />
+        <div class="calculator-sections">
+          <div class="tile-card active" id="section-hcp">
+            <h2>Playing Handicap</h2>
+            <div class="field-grid">
+              <div class="field-block">
+                <label for="hcp">Handicap</label>
+                <input
+                  type="number"
+                  id="hcp"
+                  step="0.1"
+                  min="-10"
+                  max="54"
+                  placeholder="8.2"
+                />
+              </div>
+
+              <div class="field-block">
+                <label for="slagen-resultaat">Slagen</label>
+                <input
+                  type="text"
+                  id="slagen-resultaat"
+                  readonly
+                  aria-readonly="true"
+                  placeholder="—"
+                />
+              </div>
+            </div>
+            <div
+              id="hcp-resultaat"
+              class="result-panel"
+              aria-live="polite"
+            ></div>
+          </div>
+
+          <div class="tile-card" id="section-whs">
+            <h2>WHS Score</h2>
+            <div class="field-group score-row">
+              <label for="score">Ronde score</label>
+              <input type="number" id="score" min="1" placeholder="Bijv. 83" />
+            </div>
+            <div id="resultaat" class="result-panel" aria-live="polite"></div>
+          </div>
         </div>
-<!--
-        <button class="calc" type="button" onclick="berekenWHS()">
-          Bereken WHS
-        </button>
--->
-        <div id="resultaat" class="result-panel" aria-live="polite"></div>
       </section>
     </div>
 

@@ -321,6 +321,48 @@ header p {
   margin-top: 20px;
 }
 
+.section-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.section-btn {
+  flex: 1 1 150px;
+  padding: 12px 16px;
+  border: 1px solid rgba(79, 172, 254, 0.35);
+  border-radius: 14px;
+  background: #f4f8ff;
+  color: #1b2d65;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.section-btn.active {
+  background: #4facfe;
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(79, 172, 254, 0.18);
+}
+
+.calculator-sections {
+  margin-top: 20px;
+}
+
+.calculator-section {
+  display: none;
+  padding: 24px;
+  background: #ffffff;
+  border: 1px solid rgba(34, 90, 255, 0.12);
+  border-radius: 24px;
+  box-shadow: 0 12px 28px rgba(18, 72, 158, 0.08);
+}
+
+.calculator-section.active {
+  display: block;
+}
+
 .field-block {
   display: flex;
   flex-direction: column;
