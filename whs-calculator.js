@@ -113,7 +113,7 @@ function berekenWHS() {
   const { SR, CR } = courses[selectedCourse][selectedGender][selectedTee];
   const par = courses[selectedCourse].par;
   if (isNaN(score)) {
-    document.getElementById("resultaat").innerText = "⚠️ Vul je score in.";
+    document.getElementById("resultaat").innerText = "";
     return;
   }
   let whs = (113 / SR) * (score - CR);
