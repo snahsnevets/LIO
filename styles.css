@@ -321,16 +321,21 @@ header p {
   margin-top: 20px;
 }
 
+.field-block {
+  display: flex;
+  flex-direction: column;
+}
+
 .section-tabs {
   display: flex;
-  flex-wrap: wrap;
   gap: 12px;
+  flex-wrap: wrap;
   margin-top: 24px;
 }
 
 .section-btn {
-  flex: 1 1 150px;
-  padding: 12px 16px;
+  flex: 1 1 160px;
+  padding: 14px 18px;
   border: 1px solid rgba(79, 172, 254, 0.35);
   border-radius: 14px;
   background: #f4f8ff;
@@ -342,15 +347,15 @@ header p {
 
 .section-btn.active {
   background: #4facfe;
-  color: #fff;
-  box-shadow: 0 8px 18px rgba(79, 172, 254, 0.18);
+  color: #ffffff;
+  box-shadow: 0 10px 22px rgba(79, 172, 254, 0.18);
 }
 
 .calculator-sections {
   margin-top: 20px;
 }
 
-.calculator-section {
+.tile-card {
   display: none;
   padding: 24px;
   background: #ffffff;
@@ -359,13 +364,18 @@ header p {
   box-shadow: 0 12px 28px rgba(18, 72, 158, 0.08);
 }
 
-.calculator-section.active {
+.tile-card.active {
   display: block;
 }
 
-.field-block {
-  display: flex;
-  flex-direction: column;
+.tile-card h2 {
+  margin-top: 0;
+  margin-bottom: 18px;
+  font-size: 1.35rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #1b1b1b;
+  text-align: left;
 }
 
 .whs-container h2 {
