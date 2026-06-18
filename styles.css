@@ -399,13 +399,22 @@ header p {
 .whs-container input {
   padding: 14px;
   margin-top: 6px;
-  width: 100%;
+  width: 80%;
   font-size: 1rem;
   box-sizing: border-box;
   background: #fff;
   color: #1a1a1a;
   border: 1px solid #ced4da;
   border-radius: 12px;
+}
+
+#WHS-score {
+  max-width: 80px;
+  background: #eee;
+  border: 1px solid #aaa;
+  text-align: center;
+  font-weight: bold;
+  color: #1565c0;
 }
 
 .whs-container select#baan {
@@ -531,7 +540,7 @@ button.calc:hover {
 }
 
 #slagen-resultaat {
-  max-width: 50px;
+  max-width: 80px;
   background: #eee;
   border: 1px solid #aaa;
   text-align: center;
@@ -540,11 +549,15 @@ button.calc:hover {
 }
 
 #score {
-  max-width: 100px;
-  padding: 6px;
-  text-align: left;
-  display: block;
-  margin-top: 10px;
+  padding: 14px;
+  margin-top: 6px;
+  width: 80%;
+  font-size: 1rem;
+  box-sizing: border-box;
+  background: #fff;
+  color: #1a1a1a;
+  border: 1px solid #ced4da;
+  border-radius: 12px;
 }
 
 .score-row {
