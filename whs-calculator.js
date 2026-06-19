@@ -112,25 +112,26 @@ function berekenSlagen() {
 
   document.getElementById("slagen-resultaat").value = afgerond;
   if (hcpResult)
-    hcpResult.innerText = `Playing Handicap: ${afgerond} (SR=${SR}, CR=${CR})`;
+    hcpResult.innerText = `Playing Handicap: ${afgerond} (Par=${par}, SR=${SR}, CR=${CR})`;
 }
 
 function berekenWHS() {
   const score = parseFloat(document.getElementById("score").value);
   const resultaat = document.getElementById("resultaat");
-  if (!selectedCourse || !selectedGender || !selectedTee) {
+  const whsInput = document.getElementById("WHS-score");
+
+  if (!selectedCourse || !selectedGender || !selectedTee || isNaN(score)) {
     if (resultaat) resultaat.innerText = "";
+    if (whsInput) whsInput.value = "";
     return;
   }
+
   const { SR, CR } = courses[selectedCourse][selectedGender][selectedTee];
   const par = courses[selectedCourse].par;
-  if (isNaN(score)) {
-    if (resultaat) resultaat.innerText = "";
-    return;
-  }
   let whs = (113 / SR) * (score - CR);
   if (resultaat)
     resultaat.innerText = `WHS-score: ${whs.toFixed(1)} (Par=${par}, SR=${SR}, CR=${CR})`;
+  if (whsInput) whsInput.value = whs.toFixed(1);
 }
 
 function switchCalculatorSection(section) {
